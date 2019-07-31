@@ -19,10 +19,12 @@
           <headline-small hasDash onDark>{{mainContent.subtitle}}</headline-small>
           <headline-large isH1 onDark hasDegree>{{mainContent.title}}</headline-large>
           <body-text onDark>
-            <p>Our new site is in the works. We have expanded service offerings, new work, more offices around the world, and we want to share it all with you.</p>
+            <p>{{mainContent.body}}</p>
           </body-text>
           <horizontal-rule/>
-          <inline-link-split href="https://magneticcreative.com" text="Browse Legacy Site" />
+          <div v-if="includeLink">
+            <inline-link-split href="https://magneticcreative.com" text="Browse Legacy Site" />
+          </div>
         </div>
       </grid-column>
 
@@ -96,11 +98,22 @@ export default {
     },
     videoContent: {
       type: Object,
-      default: () => {return {};}
+      default: () => ({
+        title: 'The Video Title',
+        subtitle: 'The default subtitle here'
+      })
     },
     mainContent: {
       type: Object,
-      default: () => {return {};}
+      default: () => ({
+        title: '',
+        subtitle: '',
+        body: 'Our new site is in the works. We have expanded service offerings, new work, more offices around the world, and we want to share it all with you.'
+      })
+    },
+    includeLink: {
+      type: Boolean,
+      default: true
     }
   }
 };

@@ -96,11 +96,18 @@ export default {
       });
     },
     onDocMouseleave(event) {
-    
-      this.$store.commit('setMousePos', {
-        x: (this.screenWidth * 0.5).toFixed(2),
-        y: (this.screenHeight * 0.5).toFixed(2)
-      });
+      mouseLeaveTimeout = setTimeout(() => {
+        this.$store.commit('setMousePos', {
+          x: (this.screenWidth * 0.5).toFixed(2),
+          y: (this.screenHeight * 0.5).toFixed(2)
+        });
+        mouseLeaveTimeout = null;
+      }, 200);
+    },
+    onDocMouseenter(event) {
+      if (mouseLeaveTimeout) {
+        clearTimeout(mouseLeaveTimeout);
+      }
     },
 
     doPageLoaded() {
@@ -123,7 +130,8 @@ export default {
     });
     $(document).on({
       ready: () => this.setupDomGlobals(),
-      mouseleave: e => this.onDocMouseleave(e)
+      mouseleave: e => this.onDocMouseleave(e),
+      mouseenter: e => this.onDocMouseenter(e)
     });   
   }
 };
