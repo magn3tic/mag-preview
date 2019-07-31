@@ -13,13 +13,15 @@ import { mapGetters } from 'vuex';
 let $window = null;
 let resizeTimeout = null;
 
+const orderedRoutes = ['/', '/aveva', '/chilis', '/wsj', '/mtv', '/nexgrill'];
+
 export default {
   components: { 
     SiteHeader
   },
 
   computed: {
-    ...mapGetters(['siteLoaded', 'transitioning', 'currentPage', 'thisScroll', 'scrollProgress', 'scrollComplete'])
+    ...mapGetters(['siteLoaded', 'transitioning', 'currentPage', 'thisScroll', 'scrollProgress', 'scrollComplete', 'screenHeight', 'screenWidth'])
   },
 
   methods: {
@@ -54,8 +56,8 @@ export default {
       this.$store.commit('setScrollComplete', true);
 
       if (this.$route.name === 'index') {
-        this.$router.push('/work');
-      } else if (this.$route.name === 'work') {
+        this.$router.push('/aveva');
+      } else if (this.$route.name === 'aveva') {
         this.$router.push('/');
       }
     },
@@ -90,7 +92,10 @@ export default {
       });
     },
     onDocMouseleave(event) {
-      this.$store.commit('setMousePos', {x:0,y:0});
+      this.$store.commit('setMousePos', {
+        x: (this.screenWidth * 0.5).toFixed(2),
+        y: (this.screenHeight * 0.5).toFixed(2)
+      });
     },
 
     doPageLoaded() {
@@ -131,7 +136,7 @@ html {
   font-size: 14px;
   background: $dark;
   font-family: $body-font-family;
-  font-weight: 400;
+  font-weight: 500;
   @include font-smoothing();
 }
 

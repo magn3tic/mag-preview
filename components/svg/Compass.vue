@@ -58,6 +58,7 @@ export default {
   watch: {
     'mousePos': function(updated) {
       $(this.$refs.compass).css({ transform: `rotate(${this.getRotationAngle()}deg)` });
+      // $(this.$refs.circle).css({ transform: `rotate(${this.getRotationAngle() * -0.25}deg)` });
     }
   },
 
