@@ -12,8 +12,9 @@ import { mapGetters } from 'vuex';
 
 let $window = null;
 let resizeTimeout = null;
+let mouseLeaveTimeout = null;
 
-const orderedRoutes = ['/', '/aveva', '/chilis', '/wsj', '/mtv', '/nexgrill'];
+const orderedRoutes = ['/', '/aveva', '/chilis', '/nexgrill'];
 
 export default {
   components: { 
@@ -25,7 +26,6 @@ export default {
   },
 
   methods: {
-   
     setupDomGlobals() {
       if (!$window) {
         $window = $(window);
@@ -55,10 +55,14 @@ export default {
     scrollRouterPush() {
       this.$store.commit('setScrollComplete', true);
 
-      if (this.$route.name === 'index') {
-        this.$router.push('/aveva');
-      } else if (this.$route.name === 'aveva') {
-        this.$router.push('/');
+      const currentPathIndex = orderedRoutes.indexOf(this.$route.path);
+      if (currentPathIndex === -1) return; 
+
+      const incrementedIndex = currentPathIndex + 1;
+      if (incrementedIndex === orderedRoutes.length) {
+        this.$router.push(orderedRoutes[0]);
+      } else {
+        this.$router.push(orderedRoutes[incrementedIndex]);
       }
     },
 
@@ -92,6 +96,7 @@ export default {
       });
     },
     onDocMouseleave(event) {
+    
       this.$store.commit('setMousePos', {
         x: (this.screenWidth * 0.5).toFixed(2),
         y: (this.screenHeight * 0.5).toFixed(2)

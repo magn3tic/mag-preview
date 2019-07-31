@@ -6,7 +6,7 @@
      :count="[0,0,2]"
      bgImgSrc="//cdn2.hubspot.net/hubfs/510975/2018-Website/nexgrill-case-study-bg.jpg" 
      :videoContent='{title: "Nexgrill", subtitle: "Coming Soon", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }' 
-     :mainContent='{subtitle: "Straight Grillin", title: "Nexgrill", body: "Our new site is in the works. We have expanded service offerings, new work, more offices around the world, and we want to share it all with you."}' />
+     :mainContent='{subtitle: "Beyond The Flame", title: "Nexgrill", body: "The gas grill manufacturer partnered with Magnetic to completely reimagine its brand, challenging long-time industry leaders and long-held perceptions of grilling."}' />
 
     <vertical-spacer size="250vh"/>
 
