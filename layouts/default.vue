@@ -43,7 +43,6 @@ export default {
         this.setupDomGlobals();
       }, 600);
     },
-
     doResizeHandler() {
       if (resizeTimeout !== null) {
         clearTimeout(resizeTimeout);
@@ -51,29 +50,31 @@ export default {
       this.resizeTimeout();
     },
 
+    scrollRouterPush() {
+      this.$store.commit('setScrollComplete', true);
+
+      if (this.$route.name === 'index') {
+        this.$router.push('/work');
+      } else if (this.$route.name === 'work') {
+        this.$router.push('/');
+      }
+    },
+
     scrollTickerStart() {
       const ticker = () => {
         const scrollTop = window.pageYOffset;
         
+        // todo *wtf is this?
         if (this.transitioning) { 
           if (this.setScrollComplete) {
             this.$store.commit('setScrollComplete', false);
           }
-          
+        // this makes sense
         } else {
-
           this.$store.commit('setThisScroll', scrollTop);
-
           if (this.scrollProgress > 99 && !this.scrollComplete) {
-            this.$store.commit('setScrollComplete', true);
-
-            if (this.$route.name === 'index') {
-              this.$router.push('/work');
-            } else if (this.$route.name === 'work') {
-              this.$router.push('/');
-            }
+            this.scrollRouterPush();
           }
-
         }
         
         this.$store.commit('setLastScroll', scrollTop);
@@ -89,7 +90,7 @@ export default {
       });
     },
     onDocMouseleave(event) {
-      //this.$store.commit('setMousePos', {x:0,y:0});
+      this.$store.commit('setMousePos', {x:0,y:0});
     },
 
     doPageLoaded() {
@@ -130,7 +131,7 @@ html {
   font-size: 14px;
   background: $dark;
   font-family: $body-font-family;
-  font-weight: 300;
+  font-weight: 400;
   @include font-smoothing();
 }
 
@@ -139,6 +140,7 @@ body {
 
   &.is-transitioning {
     overflow: hidden;
+    cursor: wait;
   }
 }
 
