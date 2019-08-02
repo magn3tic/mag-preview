@@ -23,7 +23,7 @@
           </body-text>
           <horizontal-rule/>
           <div v-if="includeLink">
-            <inline-link-split href="https://magneticcreative.com" text="Browse Legacy Site" />
+            <inline-link-split href="https://magneticcreative.com" text="Enter Current Site" />
           </div>
         </div>
       </grid-column>

@@ -64,7 +64,7 @@ export default {
       let lerpx = 0, lerpy = 0;
       const ticker = () => {
         if (!this.transitioning && this.isScaled) {
-          const xpos = parseFloat(((this.screenCenter.x - this.mousePos.x) * 0.05).toFixed(2));
+          const xpos = parseFloat(((this.screenCenter.x - this.mousePos.x) * 0.06).toFixed(2));
           const ypos = parseFloat((((this.screenCenter.y ) - this.mousePos.y) * 0.035).toFixed(2));
          
           lerpx += ((xpos - lerpx) * 0.035);

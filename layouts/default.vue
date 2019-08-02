@@ -14,7 +14,7 @@ let $window = null;
 let resizeTimeout = null;
 let mouseLeaveTimeout = null;
 
-const orderedRoutes = ['/', '/aveva', '/chilis', '/nexgrill'];
+const orderedRoutes = ['/', '/aveva', '/chilis', '/mtv', '/nexgrill'];
 
 export default {
   components: { 
@@ -119,6 +119,7 @@ export default {
 
   //root component lifecycle -------//
   mounted() {
+    document.body.style.visibility = 'visible';
     console.log('Router: ', this.$router);
     console.log('Route: ', this.$route);
     this.setupDomGlobals();
@@ -154,6 +155,7 @@ html {
 }
 
 body {
+  visibility: hidden;
   cursor: default;
 
   &.is-transitioning {

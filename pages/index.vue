@@ -5,7 +5,7 @@
     <panels-full-hero 
      bgImgSrc="//cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-creative-true-north-bg-sm.jpg" 
      :videoContent='{title: "At Our Core We Are", subtitle: "A Brand + Engagement Agency", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }' 
-     :mainContent='{subtitle: "We Help Brands Discover Their", title: "True North", body: "Our new site is in the works. We have expanded service offerings, new work, more offices around the world, and we want to share it all with you."}' />
+     :mainContent='{subtitle: "We Help Brands Discover", title: "True North", body: "Our new site is in the works. We have expanded service offerings, new work, more offices around the world, and we want to share it all with you."}' />
 
     <vertical-spacer size="250vh"/>
 

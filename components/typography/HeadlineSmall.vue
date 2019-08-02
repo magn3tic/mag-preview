@@ -75,6 +75,7 @@ export default {
   display: block; position:absolute; z-index: -1;
   top:50%; left:-.5em; right: -.5em;
   height: 2px;
+  transform-origin: left center;
 
   &.dashcolor--gold {
     background: $primary;

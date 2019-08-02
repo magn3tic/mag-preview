@@ -8,25 +8,15 @@
           <logo :onDark="true" />
         </nuxt-link>
       </div>
-
+      <!--
       <div class="mag-header--links">
         <nav>
           <ul>
-            <li><a href="https://magneticcreative.com">Legacy Site</a></li>
-            <li><nuxt-link to="/work">Contact</nuxt-link></li>
+            <li><nuxt-link to="/">Maybe This Opens A Form</nuxt-link></li>
           </ul>
         </nav>
       </div>
-
-      <div class="mag-header--social">
-        <ul>
-          <li><a href="#0">Fb</a></li>
-          <li><a href="#0">In</a></li>
-          <li><a href="#0">Tw</a></li>
-          <li><a href="#0">Yt</a></li>
-          <li><a href="#0">Dribbble</a></li>
-        </ul>
-      </div>
+      -->
       
     </div>
   </header>
@@ -108,8 +98,8 @@ export default {
   li {
     display: inline-block;
     margin-right: 1em;
-    font-size: 0.775em;
-    font-weight: 400;
+    font-size: 0.8em;
+    font-weight: 600;
 
     &:last-child {
       margin-right: 0;
@@ -122,7 +112,7 @@ export default {
       transition: color .35s ease;
 
       &:hover {
-        color: $ctacolor;
+        //color: $ctacolor;
         //background: rgba($dark, 0.5);
       }
     }
@@ -141,50 +131,39 @@ export default {
 @media (min-width:$bp-md) {
 
   .mag-header--brand {
-    width: 8em;
+    width: 7em;
     position: absolute;
-    left: 50%; top:50%;
-    margin-top: -.45em;
-    margin-left: -4em;
+    left: 0; top:50%;
+    margin-top: -.55em;
   }
 
   .mag-header--links {
-    float: left;
-    width: 40%;
+    float: right;
 
     li {
-      margin-right: 8.5em;
+      margin-right: 1em;
     }
   }
   
-  .mag-header--social {
-    float: right;
-    width: 40%;
-    text-align: right;
-
-    li {
-      margin-right: 1.2em;
-    }
-  }
 
   .mag-header--links {
     a {
       position: relative; z-index:19;
-      // &:after {
-      //   content:""; display:block; z-index: -1;
-      //   position: absolute; left:-.2em; 
-      //   bottom: 0.85em; right: -.2em;
-      //   height: 1px; width: auto;
-      //   background: $ctacolor;
-      //   transform: scale(0, 1);
-      //   transform-origin: right center;
-      //   transition: transform .35s $ease-out-expo;
-      // }
+      &:after {
+        content:""; display:block; z-index: -1;
+        position: absolute; left:-.2em; 
+        bottom: 0.85em; right: -.2em;
+        height: 1px; width: auto;
+        background: $ctacolor;
+        transform: scale(0, 1);
+        transform-origin: right center;
+        transition: transform .35s $ease-out-expo;
+      }
 
-      // &:hover:after, &.nuxt-link-exact-active {
-      //   transform: scale(1, 1);
-      //   transform-origin: left center;
-      // }
+      &:hover:after, &.nuxt-link-exact-active {
+        transform: scale(1, 1);
+        transform-origin: left center;
+      }
     }
   }
 
