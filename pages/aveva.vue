@@ -4,7 +4,7 @@
     <panels-full-hero 
      :count="[0,0,2]"
      bgImgSrc="//cdn2.hubspot.net/hubfs/5273025/mag/AVEVA_1800x1000.jpg" 
-     :videoContent='{title: "Aveva", subtitle: "Coming Soon", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }' 
+     :videoContent='{title: "At Our Core We Are", subtitle: "A Brand + Engagement Agency", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }' 
      :mainContent='{subtitle: "Digital Transformation", title: "Aveva", body: "One of the worlds largest industrial software brands partnered with Magnetic Global on a worldwide rebrand after its recent merger and acquisition."}' />
 
     <vertical-spacer size="250vh"/>

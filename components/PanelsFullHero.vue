@@ -4,7 +4,7 @@
 
       <grid-column :span="7">
         <div class="mag-phero--herovideo">
-          <lazy-image :src="videoContent.img" :width="460" :height="320" :isBg="false" isFluid darkBg/>
+          <video-thumbnail :img="videoContent.img" />
           <vertical-spacer size="2em"/>
           <headline-small onDark :hasDash="false">{{videoContent.title}}</headline-small>
           <body-text onDark><small>{{videoContent.subtitle}}</small></body-text>
@@ -54,7 +54,7 @@
 import FullscreenHero from '~/components/FullscreenHero';
 import PanelsBackground from '~/components/PanelsBackground';
 import GridColumn from '~/components/GridColumn';
-import LazyImage from '~/components/media/LazyImage';
+import VideoThumbnail from '~/components/media/VideoThumbnail';
 import VerticalSpacer from '~/components/layout/VerticalSpacer';
 import HeadlineSmall from '~/components/typography/HeadlineSmall';
 import HeadlineLarge from '~/components/typography/HeadlineLarge';
@@ -74,7 +74,7 @@ export default {
     FullscreenHero,
     PanelsBackground, 
     GridColumn, 
-    LazyImage, 
+    VideoThumbnail, 
     HeadlineSmall, 
     HeadlineLarge, 
     BodyText, 

@@ -2,10 +2,10 @@
   <main class="mag-main" role="main">
 
     <panels-full-hero 
-     :count="[0,0,2]"
+     :count="[0,0,4]"
      bgImgSrc="//cdn2.hubspot.net/hubfs/5273025/mag/WSJ_TRUST_1800x1000.jpg" 
-     :videoContent='{title: "Aveva", subtitle: "Coming Soon", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }' 
-     :mainContent='{subtitle: "Brand Currency", title: "Wall Street Journal", body: "America’s go-to business newspaper turned to Magnetic to create an identity and aesthetic for its newest venture: an in-house brand intelligence, content & media agency known as The Trust."}' />
+     :videoContent='{title: "At Our Core We Are", subtitle: "A Brand + Engagement Agency", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }' 
+     :mainContent='{subtitle: "Brand Currency", title: "WSJ", body: "America’s go-to business newspaper turned to Magnetic to create an identity and aesthetic for its newest venture: an in-house brand intelligence, content & media agency known as The Trust."}' />
 
     <vertical-spacer size="250vh"/>
   </main>

@@ -13,7 +13,8 @@ const getPanelElements = parent => {
   };
 };
 
-const isNodeList = list => NodeList.prototype.isPrototypeOf(list);
+const isNodeList = list => 
+  NodeList.prototype.isPrototypeOf(list);
 
 const changeElementVisibility = (set, o) => {
   set.forEach(node => {
@@ -25,16 +26,10 @@ const changeElementVisibility = (set, o) => {
   });
 };
 
-const backgroundPanelsMotion = () => {
 
-};
-
-
-/*
-* Panel Enter/Leave Transition
-* - 
-*
-*/
+//
+// Panel Enter/Leave Transition
+//
 
 export const panelEnterLeaveTransition = () => {
   let els = null;

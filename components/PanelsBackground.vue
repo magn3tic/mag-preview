@@ -63,12 +63,12 @@ export default {
     startPanelMovement() {
       let lerpx = 0, lerpy = 0;
       const ticker = () => {
-        if (!this.transitioning && this.isScaled) {
-          const xpos = parseFloat(((this.screenCenter.x - this.mousePos.x) * 0.06).toFixed(2));
+        if (!this.transitioning && this.isScaled && this.$refs.imgpanel) {
+          const xpos = parseFloat(((this.screenCenter.x - this.mousePos.x) * 0.055).toFixed(2));
           const ypos = parseFloat((((this.screenCenter.y ) - this.mousePos.y) * 0.035).toFixed(2));
          
-          lerpx += ((xpos - lerpx) * 0.035);
-          lerpy += ((ypos - lerpy) * 0.035);
+          lerpx += ((xpos - lerpx) * 0.033);
+          lerpy += ((ypos - lerpy) * 0.033);
 
           this.$refs.imgpanel.style.transform = `scale(1.05) translate3d(${lerpx}px, ${lerpy}px, 0)`;
           // $imgpanel.css({transform: `scale(1.05) translate3d(${lerpx}px, ${lerpy}px, 0)`});

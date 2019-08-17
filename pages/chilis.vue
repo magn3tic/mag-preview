@@ -2,10 +2,10 @@
   <main class="mag-main" role="main">
 
     <panels-full-hero 
-     :count="[0,0,2]"
+     :count="[0,0,3]"
      bgImgSrc="//cdn2.hubspot.net/hubfs/5273025/mag/Chilis_1800x1000.jpg" 
-     :videoContent='{title: "Chilis", subtitle: "Coming Soon", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }'
-     :mainContent='{subtitle: "Savor The Moment", title: "Chilis", body: "One of the worlds largest industrial software brands partnered with Magnetic Global on a worldwide rebrand after its recent merger and acquisition."}' />
+     :videoContent='{title: "At Our Core We Are", subtitle: "A Brand + Engagement Agency", img: "https://cdn2.hubspot.net/hubfs/510975/2018-Website/magnetic-video-production.jpg" }'
+     :mainContent='{subtitle: "Savor The Moment", title: "Chilis", body: "The baby-back-baby-back brand enlisted Magnetic to develop strategy, creative, and video that connected Asian, Middle Eastern and Latin American markets to its global story."}' />
 
     <vertical-spacer size="250vh"/>
   </main>

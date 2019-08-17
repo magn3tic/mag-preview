@@ -19,7 +19,7 @@ module.exports = {
     script: [
       { src: '//cdn.polyfill.io/v2/polyfill.min.js' },
       { src: '//cdn.jsdelivr.net/combine/npm/flickity@2.0.10/dist/flickity.pkgd.min.js,npm/animejs@2.2.0,npm/jquery@2.2.4' },
-      { src: '//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js' }
+      { src: '//player.vimeo.com/api/player.js' }
     ]
   },
   

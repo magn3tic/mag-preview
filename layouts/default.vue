@@ -1,28 +1,41 @@
 <template>
-  <div :class='{"mag-site-container":true, "is-loaded": siteLoaded, "is-transitioning": transitioning}'>
+  <div :class='{
+    "mag-site-container": true,
+    "is-loaded": siteLoaded,
+    "is-transitioning": transitioning, 
+    "is-offscreen": offscreen,
+    "is-modal-open": showingModal
+    }'>
     <site-header/>
     <nuxt/>
+    <video-modal/>
+    <custom-cursor />
   </div>
 </template>
 
 
 <script>
 import SiteHeader from '~/components/SiteHeader';
+import VideoModal from '~/components/media/VideoModal';
+import CustomCursor from '~/components/svg/CustomCursor';
 import { mapGetters } from 'vuex';
 
 let $window = null;
 let resizeTimeout = null;
-let mouseLeaveTimeout = null;
 
-const orderedRoutes = ['/', '/aveva', '/chilis', '/mtv', '/nexgrill'];
+const orderedRoutes = ['/', '/aveva', '/chilis', '/wsj', '/mtv', '/nexgrill'];
 
 export default {
   components: { 
-    SiteHeader
+    SiteHeader,
+    VideoModal,
+    CustomCursor
   },
-
+  data: () => ({
+    offscreen: true
+  }),
   computed: {
-    ...mapGetters(['siteLoaded', 'transitioning', 'currentPage', 'thisScroll', 'scrollProgress', 'scrollComplete', 'screenHeight', 'screenWidth'])
+    ...mapGetters(['siteLoaded', 'transitioning', 'currentPage', 'thisScroll', 'scrollProgress', 'scrollComplete', 'screenHeight', 'screenWidth', 'showingModal'])
   },
 
   methods: {
@@ -72,7 +85,7 @@ export default {
         
         // todo *wtf is this?
         if (this.transitioning) { 
-          if (this.setScrollComplete) {
+          if (this.scrollComplete) {
             this.$store.commit('setScrollComplete', false);
           }
         // this makes sense
@@ -90,24 +103,16 @@ export default {
     },
 
     onDocMousemove(event) {
+      if (this.offscreen) { this.offscreen = false; }
       this.$store.commit('setMousePos', {
         x: event.pageX,
-        y: event.pageY
+        y: event.pageY - window.pageYOffset
       });
     },
     onDocMouseleave(event) {
-      mouseLeaveTimeout = setTimeout(() => {
-        this.$store.commit('setMousePos', {
-          x: (this.screenWidth * 0.5).toFixed(2),
-          y: (this.screenHeight * 0.5).toFixed(2)
-        });
-        mouseLeaveTimeout = null;
-      }, 200);
+      this.offscreen = true;
     },
     onDocMouseenter(event) {
-      if (mouseLeaveTimeout) {
-        clearTimeout(mouseLeaveTimeout);
-      }
     },
 
     doPageLoaded() {
@@ -156,18 +161,30 @@ html {
 
 body {
   visibility: hidden;
-  cursor: default;
+  cursor: none;
 
   &.is-transitioning {
     overflow: hidden;
-    cursor: wait;
+  }
+
+  a, button {
+    cursor: none;
+  }
+
+  .is-modal-open {
+    cursor: default;
+    a, button {
+      cursor: default;
+    }
   }
 }
+
 
 #{headings()} {
   line-height: 1.1;
   margin: 0 0 .5em;
   font-family: $heading-font-family;
+  font-weight: 700;
 }
 
 h1 { margin: 0 0 .5em; }
